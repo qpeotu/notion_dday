@@ -6,8 +6,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900">
     <title>Document</title>
     <style>
-
-body{
+body {
     background-color: white;
 }
   
@@ -78,22 +77,19 @@ body{
   left: 60%;
   top: 5%;
 
-
 }
-
 
     </style>
 </head>
 <body>
     
 <div id="timer">
-
     <div class="days"> 
-        <div id="days" class="numbers "> </div>days</div> 
+        <div id="days" class="numbers"> </div>days</div> 
       <div class="hours"> 
-        <div  id="hours" class="numbers"> </div>hours</div> 
+        <div id="hours" class="numbers"> </div>hours</div> 
       <div class="minutes"> 
-        <div  id="minutes" class="numbers"> </div>minutes</div> 
+        <div id="minutes" class="numbers"> </div>minutes</div> 
       <div   class="seconds"> 
         <div id="seconds" class="numbers"> </div>seconds</div> 
       </div>
@@ -102,33 +98,29 @@ body{
 
 </body>
 <script>
-    const year = new Date().getFullYear();
-const myDate = new Date('Dec 31, 2025 23:59:59');
-console.log(myDate);
+    const myDate = new Date('Jan 01, 2025 23:59:59'); // 기준 날짜 설정
 
-// countdown
+// 카운트 업
 let timer = setInterval(function() {
 
-  // get today's date
+  // 오늘 날짜
   const today = new Date().getTime();
 
-  // get the difference
-  const diff = myDate - today;
+  // 경과 시간 계산
+  const diff = today - myDate;
 
-  // math
+  // 수학 계산
   let days = Math.floor(diff / (1000 * 60 * 60 * 24));
   let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
   let seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-  // display
-  document.getElementById("days").innerHTML=days
-  document.getElementById("hours").innerHTML=hours
-  document.getElementById("minutes").innerHTML=minutes
-  document.getElementById("seconds").innerHTML=seconds
+  // 화면에 표시
+  document.getElementById("days").innerHTML = days;
+  document.getElementById("hours").innerHTML = hours;
+  document.getElementById("minutes").innerHTML = minutes;
+  document.getElementById("seconds").innerHTML = seconds;
 
-
-
-}, 1);
+}, 1000);
 </script>
 </html>
